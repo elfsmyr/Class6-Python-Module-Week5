@@ -1,42 +1,36 @@
 class School():
     students=[]
-    capacity=2
-
-class Students(School):
-    def __init__(self):
-      self.name=''
-      self.age=int
-      self.gender=str
-      
-        
-    def __str__():
-        print()
-        
-    def add_student(self):
+    def __init__(self,capacity):
+        self.capacity=capacity
+    def add_student(self, student):
         if self.capacity==len(self.students):
             print("list is full")
         else:
-            self.students.append(self.name)
-            print('{} is added to the list'.format(self.name))
-        
-    def print_students():
-        for i in School.students:
+            self.students.append(student)
+            print('{} is added to the list'.format(student.name))
+    def print_students(self):
+        for i in self.students:
             print(i)
-school=Students()
-student1=Students()
-student1.name='John'
-student1.age=23
-student1.gender='male'
-student2=Students()
-student2.name='Rambo'
-student2.age=28
-student2.gender='male'
-student3=Students()
-student3.name='Camilla'
-student3.age=19
-student3.gender='female'
-Students.add_student(student1)
-Students.add_student(student2)
-Students.print_students()
-Students.add_student(student3)
+
+class Students:
+    def __init__(self,name,age,gender):
+      self.name=name
+      self.age=age
+      self.gender=gender
+      
+        
+    def __str__(self):
+        return "Student with name {} and gender {}".format(self.name,self.age)
+        
+    
+        
+    
+school=School(2)
+student1=Students("John",23,"male")
+student2=Students("Rambo",28,"male")
+student3=Students("Camilla",19,"female")
+school.add_student(student1)
+school.add_student(student2)
+school.print_students()
+school.add_student(student3)
 print(student1.__dict__)
